@@ -1,0 +1,22 @@
+.banner_container {
+  display: flex;
+  width: 100%;
+}
+
+.banner_text {
+  margin: 180px 70px;
+}
+
+.hospital_image {
+  height: 400px;
+  margin: 80px;
+}
+
+.vaccine_info_container {
+  display: flex;
+  width: 100%;
+}
+
+.vaccine_info_title {
+  margin-left: 40%;
+}

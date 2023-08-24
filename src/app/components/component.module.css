@@ -1,0 +1,7 @@
+.navbar_container {
+  display: flex;
+  background-color: rgb(22, 22, 22);
+  height: 65px;
+  width: 100%;
+  color: white;
+}
