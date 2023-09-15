@@ -1,11 +1,9 @@
 import HospitalCard from "../components/HospitalCard";
-import Navbar from "../components/navbar";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.main}>
-      <Navbar />
       <div className={styles.contentContainer}>
         <HospitalCard
           HospitalName="Chulalongkorn Hospital"
