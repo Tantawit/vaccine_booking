@@ -1,5 +1,6 @@
-import Navbar from '../components/navbar';
-import styles from './page.module.css';
+import HospitalCard from "../components/HospitalCard";
+import Navbar from "../components/navbar";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
@@ -19,21 +20,6 @@ export default function Home() {
           HospitalImagePath="/tham_hos.jpg"
         />
       </div>
-    </div>
-  );
-}
-
-function HospitalCard({
-  HospitalName,
-  HospitalImagePath,
-}: {
-  HospitalName: string;
-  HospitalImagePath: string;
-}) {
-  return (
-    <div className={styles.hospitalCard + " w-96 bg-white shadow rounded"}>
-      {HospitalName}
-      <img src={HospitalImagePath} className={styles.hospitalImage} />
     </div>
   );
 }
