@@ -1,4 +1,5 @@
 import HospitalCard from "../components/HospitalCard";
+import BookingForm from "./bookingForm";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
           HospitalName="Thammasat University Hospital"
           HospitalImagePath="/tham_hos.jpg"
         />
+        <BookingForm />
       </div>
     </div>
   );
