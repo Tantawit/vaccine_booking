@@ -1,6 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import styles from "./component.module.css";
+import { navItems } from '../config/navItems';
+import styles from './component.module.css';
 
 export default function Navbar() {
   return (
@@ -9,7 +10,9 @@ export default function Navbar() {
         Vaccine-Man
       </h1>
       <div className={styles.navitems_container}>
-        <NavItem itemName="Booking" itemLink="/bookings" />
+        {navItems.map((navItem) => (
+          <NavItem itemName={navItem.name} itemLink={navItem.link} />
+        ))}
         <Link href="/">
           <img src="/logo.png" className={styles.logo} />
         </Link>
@@ -26,7 +29,7 @@ function NavItem({
   itemLink: string;
 }) {
   return (
-    <Link className={styles.navitems + " font-mono"} href={itemLink}>
+    <Link className={styles.navitems + " font-mono mx-2"} href={itemLink}>
       {itemName}
     </Link>
   );
