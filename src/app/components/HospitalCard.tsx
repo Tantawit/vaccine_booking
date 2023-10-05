@@ -1,6 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import InteractiveCard from "./InteractiveCard";
+import BasicRating from './basicRating';
+import InteractiveCard from './InteractiveCard';
 
 export default function HospitalCard({
   HospitalName,
@@ -21,6 +22,7 @@ export default function HospitalCard({
           className="object-cover rounded-t-lg"
         />
       </div>
+      <BasicRating />
     </InteractiveCard>
   );
 }
