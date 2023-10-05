@@ -22,7 +22,7 @@ export default function InteractiveCard({
   return (
     <div
       className="w-1/5 h-[300px] rounded-lg shadow-lg"
-      onClick={() => onCardSelected()}
+      //onClick={() => onCardSelected()}
       onMouseOver={(e) => onCardMouseAction(e)}
       onMouseOut={(e) => onCardMouseAction(e)}
     >
