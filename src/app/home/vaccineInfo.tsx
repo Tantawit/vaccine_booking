@@ -6,7 +6,7 @@ export default function VaccineInfo() {
       <h2 className={styles.vaccine_info_title}>
         <br />
         <br />
-        <h3 className="text-4xl font-medium">What is Vaccine?</h3>
+        <div className="text-4xl font-medium">What is Vaccine?</div>
       </h2>
       <div className={styles.vaccine_info_container}>
         <img src="/vaccine.avif" className={styles.hospital_image} />
