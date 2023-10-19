@@ -1,20 +1,14 @@
+import HospitalCatalog from "@/components/HospitalCatalog";
 import { hospitals } from "@/config/hospitals";
+import getHospitals from "@/libs/getHospital";
 
-import HospitalCard from "../../../components/HospitalCard";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const hospitals = getHospitals();
   return (
     <div className={styles.main}>
-      <div className={styles.contentContainer}>
-        {hospitals.map((hospital) => (
-          <HospitalCard
-            HospitalName={hospital.hospitalName}
-            HospitalImagePath={hospital.hospitalImagePath}
-            HospitalId={hospital.hospitalId}
-          />
-        ))}
-      </div>
+      <HospitalCatalog hospitalJson={hospitals} />
     </div>
   );
 }
