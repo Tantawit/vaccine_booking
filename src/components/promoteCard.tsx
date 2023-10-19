@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import useWindowListener from "../hook/useWindowListener";
+import useWindowListener from "../app/hook/useWindowListener";
 import { VlogPlayer } from "./VlogPlayer";
 
 export function PromoteCard({ vdoSrc }: { vdoSrc: string }) {

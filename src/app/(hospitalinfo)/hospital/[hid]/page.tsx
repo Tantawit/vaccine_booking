@@ -1,7 +1,7 @@
-import { hospitals } from '@/app/config/hospitals';
+import { hospitals } from "@/config/hospitals";
 
-import HospitalCard from '../../../components/HospitalCard';
-import styles from './page.module.css';
+import HospitalCard from "../../../../components/HospitalCard";
+import styles from "./page.module.css";
 
 export default function HospitalDetail({
   params,

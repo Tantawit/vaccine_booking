@@ -1,5 +1,5 @@
-import LinkButton from "./components/linkButton";
-import { PromoteCard } from "./components/promoteCard";
+import LinkButton from "../components/linkButton";
+import { PromoteCard } from "../components/promoteCard";
 import Banner from "./home/banner";
 import VaccineInfo from "./home/vaccineInfo";
 import styles from "./page.module.css";
