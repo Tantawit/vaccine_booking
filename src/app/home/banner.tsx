@@ -1,7 +1,9 @@
 "use client";
-import { useState } from 'react';
 
-import styles from './home.module.css';
+import { useSession } from "next-auth/react";
+import { useState } from "react";
+
+import styles from "./home.module.css";
 
 export default function Banner() {
   const covers = [
@@ -11,6 +13,8 @@ export default function Banner() {
     "/banner3.jpg",
   ];
   const [index, setIndex] = useState(0);
+  const { data: session } = useSession();
+
   return (
     <div className={styles.banner_container}>
       <h4 className={styles.banner_text}>
@@ -21,7 +25,16 @@ export default function Banner() {
         🌍 Join the Fight: Vaccines for a Safer Tomorrow. <br />
         💉 Your Shot of Hope: Book Your Vaccination Today!
       </h4>
-      <div onClick={() => setIndex((index + 1) % covers.length)}>
+      <div
+        className="relative"
+        onClick={() => setIndex((index + 1) % covers.length)}
+      >
+        {session ? (
+          <div className="absolute top[-[10px] right-[10px]">
+            {`Hello, ${session.user?.name}`}{" "}
+          </div>
+        ) : null}
+
         <img src={covers[index]} className={styles.hospital_image} />
       </div>
     </div>
