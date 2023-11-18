@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth/next";
 import { Inter } from "next/font/google";
 
 import NextAuthProvider from "@/providers/NextAuthProvider";
+import ReduxProvider from "@/redux/Reduxprovider";
 
 import Navbar from "../components/navbar";
 import { authOptions } from "./api/auth/[...nextauth]/route";
@@ -25,10 +26,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextAuthProvider session={nextAuthSession}>
-          <Navbar />
-          {children}
-        </NextAuthProvider>
+        <ReduxProvider>
+          <NextAuthProvider session={nextAuthSession}>
+            <Navbar />
+            {children}
+          </NextAuthProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

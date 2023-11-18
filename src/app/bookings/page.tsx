@@ -1,5 +1,6 @@
 import { getServerSession } from "next-auth";
 
+import getHospitals from "@/libs/getHospital";
 import userProfile from "@/libs/getUserProfile";
 
 import { authOptions } from "../api/auth/[...nextauth]/route";
@@ -8,6 +9,8 @@ import styles from "./page.module.css";
 
 export default async function Booking() {
   const session = await getServerSession(authOptions);
+
+  const hospitalJsonReady = await getHospitals();
 
   const profile = session?.user?.token
     ? await userProfile(session.user.token)
@@ -25,7 +28,10 @@ export default async function Booking() {
   return (
     <div className={styles.main}>
       <div className={styles.contentContainer}>
-        <BookingForm Profile={profileData} />
+        <BookingForm
+          hospitalJsonReady={hospitalJsonReady}
+          Profile={profileData}
+        />
       </div>
     </div>
   );
