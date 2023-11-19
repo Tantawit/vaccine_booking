@@ -6,7 +6,9 @@ import { removeBooking } from "@/redux/features/bookSlice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 
 export default function MyBooking() {
-  const bookingItem = useAppSelector((state) => state.bookSlice.bookingItem);
+  const bookingItem = useAppSelector(
+    (state) => state.reduxPersistedReducer.bookingItem
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   return (
