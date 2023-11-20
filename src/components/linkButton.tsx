@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export default function LinkButton({
   Text,
@@ -17,6 +17,7 @@ export default function LinkButton({
         e.stopPropagation();
         router.push(Path);
       }}
+      id="select-hospital-button"
       className="mx-[40%] bg-white text-gray-600 border-gray-600 font-semibold py-2 px-2 m-2 rounded z-30 hover:bg-gray-600 hover:text-white hover:border-transparent"
     >
       {Text}

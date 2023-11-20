@@ -18,6 +18,7 @@ export function PromoteCard({ vdoSrc }: { vdoSrc: string }) {
         {" "}
         Get your vaccine today
         <button
+          id="play-button"
           className="w-[100px] h-[50px] mt-[100px] block rounded-md bg-sky-600 hover:bg-indigo-600 px-3 py-2 text-white shadow-sm"
           onClick={() => {
             setIsPlaying(!isPlaying);
