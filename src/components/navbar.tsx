@@ -22,7 +22,7 @@ export default async function Navbar() {
             <Link href="/api/auth/signin" className="mx-[5px]">
               Sign-In
             </Link>
-            <Link href="/api/auth/signup" className="mx-[5px]">
+            <Link href="/signup" className="mx-[5px]">
               Sign-Up
             </Link>
           </>
