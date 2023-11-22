@@ -7,9 +7,9 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.main}>
-      <PromoteCard vdoSrc="/vdo/getvaccine.mp4" />
+      <PromoteCard vdoSrc="/vdo/floatteeth.mp4" />
       <Banner />
-      <LinkButton Text="Select your own hospital" Path="/hospital" />
+      <LinkButton Text="Select your own dentist now ! 😷 " Path="/dentist" />
       <VaccineInfo />
     </div>
   );

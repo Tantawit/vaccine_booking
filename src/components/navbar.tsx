@@ -13,12 +13,19 @@ export default async function Navbar() {
     <div className={styles.navbar}>
       <div className="flex flex-row">
         <h1 className={styles.navbar_title + " text-xl font-mono mr-[20px]"}>
-          Vaccine-Man
+          Smile Bookings
         </h1>
         {session ? (
           <Link href="/api/auth/signout">Sign-Out of {session.user?.name}</Link>
         ) : (
-          <Link href="/api/auth/signin">Sign-In</Link>
+          <>
+            <Link href="/api/auth/signin" className="mx-[5px]">
+              Sign-In
+            </Link>
+            <Link href="/api/auth/signup" className="mx-[5px]">
+              Sign-Up
+            </Link>
+          </>
         )}
       </div>
       <div className={styles.navitems_container}>

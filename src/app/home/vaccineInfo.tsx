@@ -2,26 +2,27 @@ import styles from "./home.module.css";
 
 export default function VaccineInfo() {
   return (
-    <div>
+    <div className="mt-[100px] bg-gray-500">
       <h2 className={styles.vaccine_info_title}>
         <br />
         <br />
-        <div className="text-4xl font-medium">What is Vaccine?</div>
+        <div className="text-4xl font-medium text-gray-200">
+          What is Healthy Teeth?
+        </div>
       </h2>
       <div className={styles.vaccine_info_container}>
-        <img src="/vaccine.avif" className={styles.hospital_image} />
-        <h4 className={styles.banner_text}>
-          A vaccine is a crucial tool in modern medicine designed to bolster the
-          body's immune system against specific diseases. It contains harmless
-          pieces of the disease-causing microorganism or a weakened/deactivated
-          version of the pathogen itself. When introduced into the body, the
-          vaccine stimulates the immune system to produce a defense response,
-          including the creation of antibodies. These antibodies "remember" the
-          disease, enabling the immune system to swiftly counteract it if
-          encountered in the future. Vaccines have played a monumental role in
-          preventing and controlling a wide array of illnesses, safeguarding
-          individual health and contributing to the broader community's immunity
-          against contagious diseases
+        <img src="/smiling-monk.jpg" className={styles.hospital_image} />
+        <h4 className="text-gray-200 my-[180px] mx-[70px]">
+          A healthy dental routine serves as a cornerstone in oral care, akin to
+          a vaccine in modern medicine. It's a strategic regimen designed to
+          fortify your teeth against potential issues. By practicing regular
+          brushing, flossing, and dental check-ups, you provide your teeth with
+          the essential defenses they need. These habits work like a shield,
+          preventing the buildup of harmful bacteria and ensuring your gums and
+          enamel remain robust. Just as vaccines protect against diseases, a
+          consistent oral care routine safeguards your smile, contributing not
+          only to personal well-being but also to the overall health of our
+          dental community.
         </h4>
       </div>
     </div>
