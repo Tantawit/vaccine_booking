@@ -1,37 +1,30 @@
-"use client";
+import { getServerSession } from "next-auth";
 
-import { useDispatch } from "react-redux";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import BookingCatalog from "@/components/BookingCatalog";
+import DeleteBookingForm from "@/components/DeleteBookingForm";
+import UpdateBookingForm from "@/components/UpdateBookingForm";
+import getBooking from "@/libs/getBooking";
+import userProfile from "@/libs/getUserProfile";
 
-import { removeBooking } from "@/redux/features/bookSlice";
-import { AppDispatch, useAppSelector } from "@/redux/store";
+import styles from "./page.module.css";
 
-export default function MyBooking() {
-  const bookingItem = useAppSelector(
-    (state) => state.reduxPersistedReducer.bookingItem
-  );
-  const dispatch = useDispatch<AppDispatch>();
+export default async function MyBookingPage() {
+  let profile = null;
+  const session = await getServerSession(authOptions);
+  if (session && session.user.token) {
+    profile = await userProfile(session.user.token);
+  }
+  const token = session.user.token;
+
+  const bookings = getBooking(token);
+  const bookingJsonReady = await bookings;
 
   return (
-    <main>
-      <div className="bg-slate-200 rounded px-5 mx-5 py-2 my-2">
-        {bookingItem ? (
-          <div>
-            <div>First Name: {bookingItem?.firstname} </div>
-            <div>Last Name: {bookingItem?.lastname} </div>
-            <div>National ID: {bookingItem?.nationalIdCard} </div>
-            <div>Hospital: {bookingItem?.hospitalName} </div>
-            <div>Date: {bookingItem?.date.toString()} </div>
-            <button
-              className="bg-cyan-600 text-white border boarder-cyan-600 p-2 m-2 rounded hover:border-transparent"
-              onClick={() => dispatch(removeBooking())}
-            >
-              Cancel Booking
-            </button>
-          </div>
-        ) : (
-          "No Vaccine Booking"
-        )}
-      </div>
-    </main>
+    <div className={styles.main}>
+      <BookingCatalog bookings={bookingJsonReady} />
+      <UpdateBookingForm bookings={bookingJsonReady} token={token} />
+      <DeleteBookingForm bookings={bookingJsonReady} token={token} />
+    </div>
   );
 }

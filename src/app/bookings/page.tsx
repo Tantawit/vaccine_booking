@@ -1,38 +1,27 @@
 import { getServerSession } from "next-auth";
 
-import getHospitals from "@/libs/getHospital";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import BookingForm from "@/components/BookingForm";
+import getDentist from "@/libs/getDentist";
 import userProfile from "@/libs/getUserProfile";
 
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import BookingForm from "./bookingForm";
 import styles from "./page.module.css";
 
-export default async function Booking() {
+export default async function HospitalPage() {
+  const dentist = getDentist();
+
+  let profile = null;
   const session = await getServerSession(authOptions);
+  if (session && session.user.token) {
+    profile = await userProfile(session.user.token);
+  }
+  const token = session.user.token;
 
-  const hospitalJsonReady = await getHospitals();
-
-  const profile = session?.user?.token
-    ? await userProfile(session.user.token)
-    : null;
-
-  const profileData = profile?.data
-    ? {
-        name: profile.data.name,
-        email: profile.data.email,
-        tel: profile.data.tel,
-        createAt: new Date(profile.data.createdAt).toString(),
-      }
-    : {};
-
+  const dentistJsonReady = await dentist;
+  // profile && profile.data.role == "admin" ?
   return (
     <div className={styles.main}>
-      <div className={styles.contentContainer}>
-        <BookingForm
-          hospitalJsonReady={hospitalJsonReady}
-          Profile={profileData}
-        />
-      </div>
+      <BookingForm token={token} dentists={dentistJsonReady} />{" "}
     </div>
   );
 }
