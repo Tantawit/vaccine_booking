@@ -18,7 +18,7 @@ export default async function HospitalPage() {
   if (session && session.user.token) {
     profile = await userProfile(session.user.token);
   }
-  const token = session.user.token;
+  const token = session ? session.user.token : null;
 
   const dentistJsonReady = await dentist;
 
