@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-import { navItems } from "../config/navItems";
+import { navItems, navItemsLogOut } from "../config/navItems";
 import styles from "./component.module.css";
 
 export default async function Navbar() {
@@ -29,9 +29,13 @@ export default async function Navbar() {
         )}
       </div>
       <div className={styles.navitems_container}>
-        {navItems.map((navItem) => (
-          <NavItem itemName={navItem.name} itemLink={navItem.link} />
-        ))}
+        {session
+          ? navItems.map((navItem) => (
+              <NavItem itemName={navItem.name} itemLink={navItem.link} />
+            ))
+          : navItemsLogOut.map((navItem) => (
+              <NavItem itemName={navItem.name} itemLink={navItem.link} />
+            ))}
         <Link href="/">
           <img src="/logo.png" className={styles.logo} />
         </Link>
